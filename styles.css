@@ -32,4 +32,23 @@ html, body {
     grid-row: 2 / span 1;
     height: 100%;
     background-color: var(--800);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.book-table {
+    border: 1px solid var(--500);
+    background-color: var(--100);
+}
+
+.book-table * {
+    padding: 15px;
+}
+
+caption {
+    border: 1px solid var(--600);
+    background-color: var(--200);
+    font-weight: bold;
+    font-size: 24px;
 }
