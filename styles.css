@@ -48,6 +48,8 @@ html, body {
 .book-table {
     border: 1px solid var(--500);
     background-color: var(--100);
+    width: 80%;
+    margin-top: 15px;
 }
 
 .book-table * {
