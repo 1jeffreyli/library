@@ -19,20 +19,24 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(book);
 }
 
-const bookBody = document.getElementsByTagName("tbody");
 // let tableRow = document.createElement("tr");
 
 // a function that loops through the myLibrary array and displays them in the table
 // two loops, first one to create a row element for each book, the second nested loop to create and append
 // table cells to that row with the book's data
 
+let bookProperties = ["title", "author", "pages", "read"];
+
 function displayBook (myLibrary) {
-    let tableRow = document.createElement("tr");
-    let tableCell = document.createElement("td");
+    const table = document.getElementById("table");
+    // let tableRow = document.createElement("tr");
+    // let tableCell = document.createElement("td");
     for (let i=0; i < myLibrary.length; i++) {
-        bookBody.appendChild(tableRow);
-        for (let j=0; j < myLibrary[i].length; j++) {
-            tableCell.textContent = myLibrary[i][j];
+        const row = table.insertRow(-1);
+        for (let j=0; j <= myLibrary.length; j++) {
+            const cell = row.insertCell(-1);
+            // cell.innerHTML = "hello";
+            cell.innerHTML = myLibrary[i][bookProperties[j]];
         }
     }
 }
