@@ -31,7 +31,7 @@ function displayBook (myLibrary) {
     const table = document.getElementById("table");
     // let tableRow = document.createElement("tr");
     // let tableCell = document.createElement("td");
-    for (let i = 0; i < myLibrary.length; i++) {
+    for (let i = 0; i < myLiby.length; i++) {
         const row = table.insertRow(-1);
         for (let j = 0; j <= myLibrary.length + 1; j++) {
             const cell = row.insertCell(-1);
@@ -40,3 +40,6 @@ function displayBook (myLibrary) {
         }
     }
 }
+
+// Create a modal for the NEW BOOK form and set the position to be absolute, with the view toggled from hidden to visible on click event
+// link the input values of the form to the addBookToLibrary and displayBook functions (add book details first then display)
