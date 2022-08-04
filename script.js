@@ -31,7 +31,7 @@ function displayBook (myLibrary) {
     const table = document.getElementById("table");
     // let tableRow = document.createElement("tr");
     // let tableCell = document.createElement("td");
-    for (let i = 0; i < myLiby.length; i++) {
+    for (let i = 0; i < myLibrary.length; i++) {
         const row = table.insertRow(-1);
         for (let j = 0; j <= myLibrary.length + 1; j++) {
             const cell = row.insertCell(-1);
