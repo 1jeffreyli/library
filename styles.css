@@ -60,7 +60,7 @@ html, body {
 
 caption {
     border: 1px solid var(--600);
-    background-color: var(--700);
+    background-color: var(--900);
     font-weight: bold;
     font-size: 24px;
     color: var(--100);
@@ -78,7 +78,7 @@ th, td {
     font-size: 14px;
     padding: .5rem 1rem;
     border-radius: 15px;
-    border-color: var(--800);
+    border-color: var(--900);
 }
 
 .form-container {
