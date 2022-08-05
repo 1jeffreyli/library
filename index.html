@@ -7,6 +7,8 @@
     <title>Library</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -38,34 +40,40 @@
                 <button>New Book</button>
             </div>
         </div>
-        <div class="form-container">
-            <form action="">
-                <fieldset>
-                    <legend class="form-header">Add a new book</legend>
-                    <div class="labels-inputs">
-                        <label for="book-title">
-                            Book Title
-                        </label>
-                        <input type="text" name="book-title" id="book-title" placeholder="Title">
-                        
-                        <label for="author">
-                            Author
-                        </label>
-                        <input type="text"  name="author" id="author" placeholder="Author">
-
-                        <label for="pages">
-                            Number of Pages
-                        </label>
-                        <input type="number" name="pages" id="pages" placeholder="###">
-
-                        <label for="read">
-                            Read
-                        </label>
-                        <input type="text" name="read" id="read" placeholder="Yes or no">
-
-                    </div>
-                </fieldset>
-            </form>
+        <div class="modal">
+            <div class="form-container">
+                <form action="">
+                    <fieldset>
+                        <legend class="form-header">Add a new book</legend>
+                        <div class="labels-inputs">
+                            <label for="book-title">
+                                Book Title
+                            </label>
+                            <input type="text" name="book-title" id="book-title" placeholder="Title">
+            
+                            <label for="author">
+                                Author
+                            </label>
+                            <input type="text"  name="author" id="author" placeholder="Author">
+                            
+                            <label for="pages">
+                                Number of Pages
+                            </label>
+                            <input type="number" name="pages" id="pages" placeholder="###">
+                            
+                            <label for="read">
+                                Read
+                            </label>
+                            <input type="text" name="read" id="read" placeholder="Yes or no">
+                        </div>
+                    </fieldset>
+                </form>
+                <div class="close-button">
+                    <div class="material-icons">cancel</div>
+                </div>
+            </div>
+            <div class="form-modal-background">
+            </div>
         </div>
     </div>
 </body>
