@@ -1,81 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <script src="script.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper">
-        <div class="header-container">
-            <h1>Virtual Library</h1>
+      <div class="header-container">
+        <h1>Virtual Library</h1>
+      </div>
+      <div class="book-container">
+        <table class="book-table" id="table">
+          <caption>
+            Book List
+          </caption>
+          <thead>
+            <tr>
+              <th scope="colgroup">Title</th>
+              <th scope="colgroup">Author</th>
+              <th scope="colgroup">Pages</th>
+              <th scope="colgroup">Read</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>The Hobbit</td>
+              <td>J.R.R. Tolkien</td>
+              <td>295</td>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="button-container">
+          <button id="new-book-btn">New Book</button>
         </div>
-        <div class="book-container">
-            <table class="book-table" id="table">
-                <caption>Book List</caption>
-                <thead>
-                    <tr>
-                        <th scope="colgroup">Title</th>
-                        <th scope="colgroup">Author</th>
-                        <th scope="colgroup">Pages</th>
-                        <th scope="colgroup">Read</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>The Hobbit</td>
-                        <td>J.R.R. Tolkien</td>
-                        <td>295</td>
-                        <td>No</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="button-container">
-                <button id="new-book-btn">New Book</button>
-            </div>
+      </div>
+      <div class="modal hidden" id="modal">
+        <div class="form-container">
+          <form action="">
+            <fieldset>
+              <legend class="form-header">Add a new book</legend>
+              <div class="labels-inputs">
+                <label for="book-title"> Book Title </label>
+                <input
+                  type="text"
+                  name="book-title"
+                  id="book-title"
+                  placeholder="Title"
+                />
+
+                <label for="author"> Author </label>
+                <input
+                  type="text"
+                  name="author"
+                  id="author"
+                  placeholder="Author"
+                />
+
+                <label for="pages"> Number of Pages </label>
+                <input
+                  type="number"
+                  name="pages"
+                  id="pages"
+                  placeholder="###"
+                />
+
+                <label for="read"> Read </label>
+                <input
+                  type="text"
+                  name="read"
+                  id="read"
+                  placeholder="Yes or no"
+                />
+              </div>
+              <button class="add-book-btn" type="submit">Add Book</button>
+            </fieldset>
+          </form>
+          <div class="close-btn">
+            <div class="material-icons">cancel</div>
+          </div>
         </div>
-        <div class="modal hidden" id="modal">
-            <div class="form-container">
-                <form action="">
-                    <fieldset>
-                        <legend class="form-header">Add a new book</legend>
-                        <div class="labels-inputs">
-                            <label for="book-title">
-                                Book Title
-                            </label>
-                            <input type="text" name="book-title" id="book-title" placeholder="Title">
-            
-                            <label for="author">
-                                Author
-                            </label>
-                            <input type="text"  name="author" id="author" placeholder="Author">
-                            
-                            <label for="pages">
-                                Number of Pages
-                            </label>
-                            <input type="number" name="pages" id="pages" placeholder="###">
-                            
-                            <label for="read">
-                                Read
-                            </label>
-                            <input type="text" name="read" id="read" placeholder="Yes or no">
-                        </div>
-                        <button class="add-book-btn" type="submit">Add Book</button>
-                    </fieldset>
-                </form>
-                <div class="close-btn">
-                    <div class="material-icons">cancel</div>
-                </div>
-            </div>
-            <div class="form-modal-background">
-            </div>
-        </div>
+        <div class="form-modal-background"></div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
