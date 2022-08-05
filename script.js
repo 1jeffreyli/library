@@ -43,3 +43,9 @@ function displayBook (myLibrary) {
 
 // Create a modal for the NEW BOOK form and set the position to be absolute, with the view toggled from hidden to visible on click event
 // link the input values of the form to the addBookToLibrary and displayBook functions (add book details first then display)
+
+// add an event listener to the New Book button that pops out the modal by removing display none
+// add an event listener to the Add Book button to submit the form's inputs and call the addBookToLibrary function and displayBook function
+// also closing the modal by adding display none back to it
+// separately add event listeners to the x button and blackish background that "close" the modal by
+// adding display none back to the modal
