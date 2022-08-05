@@ -41,6 +41,17 @@ function displayBook (myLibrary) {
 // link the input values of the form to the addBookToLibrary and displayBook functions (add book details first then display)
 
 // add an event listener to the New Book button that pops out the modal by removing display none
+const newBookBtn = document.getElementById("new-book-btn");
+// function displayToggle() {
+//     const modal = document.getElementById("modal");
+//     if (modal.style.display === "none") {
+//         modal.style.display === "block";
+//     } else {
+//         modal.style.display = "none";
+//     }
+// }
+newBookBtn.addEventListener("click", displayToggle());
+
 // add an event listener to the Add Book button to submit the form's inputs and call the addBookToLibrary function and displayBook function
 // also closing the modal by adding display none back to it
 // separately add event listeners to the x button and blackish background that "close" the modal by
