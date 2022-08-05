@@ -44,8 +44,6 @@ function displayBook(myLibrary) {
   }
 }
 
-// Create a modal for the NEW BOOK form and set the position to be absolute, with the view toggled from hidden to visible on click event
-// link the input values of the form to the addBookToLibrary and displayBook functions (add book details first then display)
 
 // add an event listener to the New Book button that pops out the modal by removing display none
 const newBookBtn = document.getElementById("new-book-btn");
@@ -58,21 +56,20 @@ newBookBtn.addEventListener("click", displayToggle);
 // add an event listener to the Add Book button to submit the form's inputs and call the addBookToLibrary function and displayBook function
 // also closing the modal by adding display none back to it
 
-// separately add event listeners to the x button and blackish background that "close" the modal by
-// adding display none back to the modal
+// event listeners to hide the modal when clicking the cancel button, modal background, or pressing the escape key
 const closeBtn = document.querySelector(".close-btn");
 function closeModal() {
-    const modal = document.getElementById("modal");
-    modal.classList.add("hidden");
+  const modal = document.getElementById("modal");
+  modal.classList.add("hidden");
 }
 closeBtn.addEventListener("click", closeModal);
 
 const modalBackground = document.querySelector(".form-modal-background");
 modalBackground.addEventListener("click", closeModal);
 
-document.addEventListener("keydown", function(event) {
-    if(event.key === "Escape") {
-        const modal = document.getElementById("modal");
-        modal.classList.add("hidden");
-    }
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    const modal = document.getElementById("modal");
+    modal.classList.add("hidden");
+  }
 });
