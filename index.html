@@ -50,39 +50,52 @@
             <fieldset>
               <legend class="form-header">Add a new book</legend>
               <div class="labels-inputs">
-                <label for="book-title"> Book Title </label>
-                <input
-                  type="text"
-                  name="book-title"
-                  id="book-title"
-                  placeholder="Title"
-                />
+                <div class="book-title-container">
+                    <label for="book-title"> Book Title </label>
+                    <input
+                      type="text"
+                      name="book-title"
+                      id="book-title"
+                      placeholder="Title"
+                      required
+                    />
+                </div>
 
-                <label for="author"> Author </label>
-                <input
-                  type="text"
-                  name="author"
-                  id="author"
-                  placeholder="Author"
-                />
+                <div class="author-container">
+                    <label for="author"> Author </label>
+                    <input
+                      type="text"
+                      name="author"
+                      id="author"
+                      placeholder="Name"
+                      required
+                    />
+                </div>
 
-                <label for="pages"> Number of Pages </label>
-                <input
-                  type="number"
-                  name="pages"
-                  id="pages"
-                  placeholder="###"
-                />
+                <div class="pages-container">
+                    <label for="pages"> Number of Pages </label>
+                    <input
+                      type="number"
+                      name="pages"
+                      id="pages"
+                      placeholder="XXX"
+                      required
+                      pattern="/^\d+/g"
+                    />
+                </div>
 
-                <label for="read"> Read </label>
-                <input
-                  type="text"
-                  name="read"
-                  id="read"
-                  placeholder="Yes or no"
-                />
+                <div class="read-container">
+                    <label for="read"> Read </label>
+                    <input
+                      type="text"
+                      name="read"
+                      id="read"
+                      placeholder="Yes or no"
+                      required
+                    />
+                </div>
               </div>
-              <button class="add-book-btn" type="submit">Add Book</button>
+              <button class="add-book-btn" type="submit">Add</button>
             </fieldset>
           </form>
           <div class="close-btn">

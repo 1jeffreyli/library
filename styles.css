@@ -81,13 +81,12 @@ td {
 .button-container button {
   font-size: 14px;
   padding: 0.5rem 1rem;
-  border-radius: 15px;
+  border-radius: 5px;
   border-color: var(--900);
   box-shadow: var(--box-shadow);
-  cursor: pointer;
 }
 
-.button-container button:hover {
+.button-container button:hover, .add-book-btn:hover {
     background-color: var(--800);
     color: var(--200);
 }
@@ -96,6 +95,41 @@ td {
   position: absolute;
   background-color: var(--100);
   padding: 15px;
+  border-radius: 5px;
+}
+
+.form-header {
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.labels-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.labels-inputs > div {
+    margin: 0 15px 15px 15px;
+}
+
+.labels-inputs > div > label, input {
+    display: block;
+    width: 100%;
+    margin: 0;
+    font-size: 12px;
+}
+
+.add-book-btn {
+    margin-left: 15px;
+    border-radius: 5px;
+    border-color: var(--900);
+}
+
+.add-book-btn:hover {
+
 }
 
 .modal {
@@ -126,7 +160,7 @@ td {
   right: 5px;
 }
 
-.close-btn:hover {
+.close-btn:hover, .button-container button, .add-book-btn:hover {
     cursor: pointer;
 }
 
