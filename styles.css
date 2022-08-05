@@ -53,6 +53,7 @@ body {
   background-color: var(--100);
   width: 80%;
   margin-top: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .book-table * {
@@ -81,6 +82,12 @@ td {
   padding: 0.5rem 1rem;
   border-radius: 15px;
   border-color: var(--900);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.button-container button:hover {
+    background-color: var(--800);
+    color: var(--200);
 }
 
 .form-container {
@@ -98,6 +105,7 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .hidden {
@@ -114,6 +122,10 @@ td {
   position: absolute;
   top: 5px;
   right: 5px;
+}
+
+.close-btn:hover {
+    cursor: pointer;
 }
 
 /* set modal's default display to none so that it is hidden, then use JS to remove

@@ -60,3 +60,19 @@ newBookBtn.addEventListener("click", displayToggle);
 
 // separately add event listeners to the x button and blackish background that "close" the modal by
 // adding display none back to the modal
+const closeBtn = document.querySelector(".close-btn");
+function closeModal() {
+    const modal = document.getElementById("modal");
+    modal.classList.add("hidden");
+}
+closeBtn.addEventListener("click", closeModal);
+
+const modalBackground = document.querySelector(".form-modal-background");
+modalBackground.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", function(event) {
+    if(event.key === "Escape") {
+        const modal = document.getElementById("modal");
+        modal.classList.add("hidden");
+    }
+});
