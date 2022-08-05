@@ -109,3 +109,6 @@ th, td {
     top: 5px;
     right: 5px;
 }
+
+/* set modal's default display to none so that it is hidden, then use JS to remove
+/* display: none using DOM methods */
