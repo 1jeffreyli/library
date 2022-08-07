@@ -128,9 +128,6 @@ td {
     border-color: var(--900);
 }
 
-.add-book-btn:hover {
-
-}
 
 .modal {
   position: fixed;
@@ -163,6 +160,3 @@ td {
 .close-btn:hover, .button-container button, .add-book-btn:hover {
     cursor: pointer;
 }
-
-/* set modal's default display to none so that it is hidden, then use JS to remove
-/* display: none using DOM methods */

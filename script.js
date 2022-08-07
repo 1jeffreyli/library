@@ -6,19 +6,19 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function () {
-    return (
-      this.title +
-      " by " +
-      this.author +
-      ", " +
-      this.pages +
-      " pages, " +
-      this.read +
-      "."
-    );
+//   this.info = function () {
+//     return (
+//       this.title +
+//       " by " +
+//       this.author +
+//       ", " +
+//       this.pages +
+//       " pages, " +
+//       this.read +
+//       "."
+//     );
   };
-}
+
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
 
@@ -55,6 +55,9 @@ newBookBtn.addEventListener("click", displayToggle);
 
 // add an event listener to the Add Book button to submit the form's inputs and call the addBookToLibrary function and displayBook function
 // also closing the modal by adding display none back to it
+const bookTitle = document.getElementById("book-title").value;
+const bookAuthor = document.getElementById("author").value;
+
 
 // event listeners to hide the modal when clicking the cancel button, modal background, or pressing the escape key
 const closeBtn = document.querySelector(".close-btn");
