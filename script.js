@@ -1,4 +1,22 @@
-let myLibrary = [];
+let myLibrary = [
+    {
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        pages: 295,
+        read: false
+    }
+];
+
+// DOM objects
+$newBookButton = document.querySelector("#new-book-btn");
+$table = document.querySelector(".book-table");
+$tbody = document.querySelector("tbody");
+
+$modalForm = document.querySelector(".modal-form");
+$title = document.querySelector("#book-title");
+$author = document.querySelector("#author");
+$pages = document.querySelector("#pages");
+$read = document.querySelector("#read");
 
 // constructor
 function Book(title, author, pages, read) {
@@ -6,32 +24,27 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-//   this.info = function () {
-//     return (
-//       this.title +
-//       " by " +
-//       this.author +
-//       ", " +
-//       this.pages +
-//       " pages, " +
-//       this.read +
-//       "."
-//     );
   };
 
 
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
+const addBookToLibrary = () => {
+    let title = $titleInput.value;
+    let author = $authorInput.value;
+    let pages = $pagesInput.value;
+    let read = readValue();
+    let newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+}
 
-function addBookToLibrary(title, author, pages, read) {
-  const book = new Book(title, author, pages, read);
-  myLibrary.push(book);
+function readValue() {
+    if($form.querySelector('input[name="read"]'.value == "yes")) return true;
+    else return false;
 }
 
 // a function that loops through the myLibrary array and displays them in the table
 // two loops, first one to create a row element for each book, the second nested loop to create and append
 // table cells to that row with the book's data
 
-let bookProperties = ["title", "author", "pages", "read"];
 
 function displayBook(myLibrary) {
   const table = document.getElementById("table");
