@@ -3,7 +3,13 @@ let myLibrary = [
         title: "The Hobbit",
         author: "J.R.R. Tolkien",
         pages: 295,
-        read: false
+        read: "no"
+    },
+    {
+        title: "Harry Potter",
+        author: "JK Rowling",
+        pages: 123,
+        read: "yes"
     }
 ];
 
@@ -17,6 +23,7 @@ const title = document.querySelector("#book-title");
 const author = document.querySelector("#author");
 const pages = document.querySelector("#pages");
 const read = document.querySelector("#read");
+const bookCards = document.querySelector(".book-cards");
 
 // constructor
 function Book(title, author, pages, read) {
@@ -35,6 +42,8 @@ const addBookToLibrary = () => {
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
 }
+const addBookButton = document.querySelector(".add-book-btn");
+addBookButton.addEventListener("click", addBookToLibrary);
 
 function readValue() {
     if(form.querySelector('input[name="read"]'.value == "yes")) {
@@ -44,22 +53,20 @@ function readValue() {
     }
 }
 
-// a function that loops through the myLibrary array and displays them in the table
-// two loops, first one to create a row element for each book, the second nested loop to create and append
-// table cells to that row with the book's data
-
-
+// a function that creates a div with the title as a header and appends it to book-cards container
 function displayBook(myLibrary) {
-  const table = document.getElementById("table");
-  for (let i = 0; i < myLibrary.length; i++) {
-    const row = table.insertRow(-1);
-    for (let j = 0; j <= myLibrary.length + 1; j++) {
-      const cell = row.insertCell(-1);
-      cell.innerHTML = myLibrary[i][bookProperties[j]];
+    for (let i=0; i < myLibrary.length; i++) {
+    const div = document.createElement("div");
+    const h1 = document.createElement("h2");
+    const p = document.createElement("p");
+    h1.textContent = myLibrary[i]["title"];
+    p.textContent = myLibrary[i]["author"] + " " + myLibrary[i]["pages"] + " " + myLibrary[i]["read"];
+    div.appendChild(h1);
+    div.appendChild(p);
+    bookCards.appendChild(div);
     }
-  }
 }
-
+displayBook(myLibrary);
 
 // add an event listener to the New Book button that pops out the modal by removing display none
 const newBookBtn = document.getElementById("new-book-btn");
