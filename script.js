@@ -8,15 +8,15 @@ let myLibrary = [
 ];
 
 // DOM objects
-$newBookButton = document.querySelector("#new-book-btn");
-$table = document.querySelector(".book-table");
-$tbody = document.querySelector("tbody");
+const newBookButton = document.querySelector("#new-book-btn");
+const table = document.querySelector(".book-table");
+const tbody = document.querySelector("tbody");
 
-$modalForm = document.querySelector(".modal-form");
-$title = document.querySelector("#book-title");
-$author = document.querySelector("#author");
-$pages = document.querySelector("#pages");
-$read = document.querySelector("#read");
+const modalForm = document.querySelector(".modal-form");
+const title = document.querySelector("#book-title");
+const author = document.querySelector("#author");
+const pages = document.querySelector("#pages");
+const read = document.querySelector("#read");
 
 // constructor
 function Book(title, author, pages, read) {
@@ -28,17 +28,20 @@ function Book(title, author, pages, read) {
 
 
 const addBookToLibrary = () => {
-    let title = $titleInput.value;
-    let author = $authorInput.value;
-    let pages = $pagesInput.value;
+    let title = titleInput.value;
+    let author = authorInput.value;
+    let pages = pagesInput.value;
     let read = readValue();
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
 }
 
 function readValue() {
-    if($form.querySelector('input[name="read"]'.value == "yes")) return true;
-    else return false;
+    if(form.querySelector('input[name="read"]'.value == "yes")) {
+        return true;
+    } else {
+    return false;
+    }
 }
 
 // a function that loops through the myLibrary array and displays them in the table
