@@ -34,6 +34,7 @@ class Book {
           const div = document.createElement("div");
           const h2 = document.createElement("h2");
           const p = document.createElement("p");
+          div.classList.add("book-card");
           h2.textContent = myLibrary[i]["title"];
           p.textContent = "By " + myLibrary[i]["author"] + ", " + myLibrary[i]["pages"] + " pages, " + myLibrary[i]["read"];
           div.appendChild(h2);
