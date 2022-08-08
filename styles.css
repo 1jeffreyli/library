@@ -50,10 +50,10 @@ body {
 }
 
 .book-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(50px, 1fr);
-    gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(50px, 1fr);
+  gap: 15px;
 }
 
 .book-card {
@@ -70,8 +70,8 @@ body {
 }
 
 .book-cards h2 {
-    font-size: 18px;
-    font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .button-container {
@@ -86,9 +86,10 @@ body {
   box-shadow: var(--box-shadow);
 }
 
-.button-container button:hover, .add-book-btn:hover {
-    background-color: var(--800);
-    color: var(--200);
+.button-container button:hover,
+.add-book-btn:hover {
+  background-color: var(--800);
+  color: var(--200);
 }
 
 .form-container {
@@ -99,35 +100,35 @@ body {
 }
 
 .form-header {
-    text-align: center;
-    padding-bottom: 15px;
-    font-size: 24px;
-    font-weight: bolder;
+  text-align: center;
+  padding-bottom: 15px;
+  font-size: 24px;
+  font-weight: bolder;
 }
 
 .labels-inputs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
 }
 
 .labels-inputs > div {
-    margin: 0 15px 15px 15px;
+  margin: 0 15px 15px 15px;
 }
 
-.labels-inputs > div > label, input {
-    display: block;
-    width: 100%;
-    margin: 0;
-    font-size: 12px;
+.labels-inputs > div > label,
+input {
+  display: block;
+  width: 100%;
+  margin: 0;
+  font-size: 12px;
 }
 
 .add-book-btn {
-    margin-left: 15px;
-    border-radius: 5px;
-    border-color: var(--900);
+  margin-left: 15px;
+  border-radius: 5px;
+  border-color: var(--900);
 }
-
 
 .modal {
   position: fixed;
@@ -157,6 +158,8 @@ body {
   right: 5px;
 }
 
-.close-btn:hover, .button-container button, .add-book-btn:hover {
-    cursor: pointer;
+.close-btn:hover,
+.button-container button,
+.add-book-btn:hover {
+  cursor: pointer;
 }
