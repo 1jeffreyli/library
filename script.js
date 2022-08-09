@@ -55,15 +55,19 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(newBook);
 }
 
-function addFromForm() {
-  const title = document.querySelector("#book-title").value;
-  const author = document.querySelector("#author").value;
-  const pages = document.querySelector("#pages").value;
-  const read = document.querySelector("#read").value;
-//   const form = document.getElementById("form").submit();
-  addBookToLibrary(title, author, pages, read);
+const form = document.getElementById("form");
+
+function addFromForm(event) {
+    event.preventDefault();
+    const title = document.querySelector("#book-title").value;
+    const author = document.querySelector("#author").value;
+    const pages = document.querySelector("#pages").value;
+    const read = document.querySelector("#read").value;
+    addBookToLibrary(title, author, pages, read);
+    document.querySelector("form").reset();
+    localStorage.setItem("MyLibrary", JSON.stringify(myLibrary));
 }
-addFromForm();
+form.addEventListener("click", addFromForm);
 // form.addEventListener("click", displayBook(myLibrary));
 
 const addBookButton = document.querySelector(".add-book-btn");
@@ -96,4 +100,8 @@ document.addEventListener("keydown", function (event) {
     const modal = document.getElementById("modal");
     modal.classList.add("hidden");
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".add-book-btn").addEventListener("click", addFromForm);
 });
