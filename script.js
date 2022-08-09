@@ -18,7 +18,6 @@ const newBookButton = document.querySelector("#new-book-btn");
 const bookCards = document.querySelector(".book-cards");
 const form = document.querySelector("form");
 
-
 // constructor
 class Book {
   constructor(title, author, pages, read) {
@@ -77,11 +76,13 @@ function addBookToLibrary() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".add-book-btn").addEventListener("click", addBookToLibrary);
+  document
+    .querySelector(".add-book-btn")
+    .addEventListener("click", addBookToLibrary);
 });
 
 function storeLocally() {
-    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
 // add an event listener to the New Book button that pops out the modal by removing display none
