@@ -36,7 +36,12 @@ function displayBook(myLibrary) {
     const div = document.createElement("div");
     const h2 = document.createElement("h2");
     const p = document.createElement("p");
+    const removeContainer = document.createElement("div");
+    const remove = document.createElement("div");
     div.classList.add("book-card");
+    removeContainer.classList.add("cursor");
+    remove.classList.add("material-icons");
+    remove.innerText = "delete";
     h2.textContent = myLibrary[i]["title"];
     p.textContent =
       "By " +
@@ -47,6 +52,8 @@ function displayBook(myLibrary) {
       myLibrary[i]["read"];
     div.appendChild(h2);
     div.appendChild(p);
+    removeContainer.appendChild(remove);
+    div.appendChild(removeContainer);
     bookCards.appendChild(div);
   }
 }
