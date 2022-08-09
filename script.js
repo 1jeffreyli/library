@@ -52,6 +52,9 @@ function displayBook(myLibrary) {
 }
 displayBook(myLibrary);
 
+// grabs the input values from the form and creates a new book object that is pushed to myLibrary array
+// the array then stores the updated array to local storage and displayBook iterates through the updated myLibrary
+// finish by clearing the form's data for future entries and closing the modal/popup
 function addBookToLibrary() {
   event.preventDefault();
   const title = document.querySelector("#book-title").value;
@@ -63,6 +66,7 @@ function addBookToLibrary() {
   storeLocally();
   displayBook(myLibrary);
   document.querySelector("form").reset();
+  closeModal();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -72,19 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function storeLocally() {
     localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
-
-
-// function addFromForm(event) {
-//     event.preventDefault();
-//     addBookToLibrary(title, author, pages, read);
-//     document.querySelector("form").reset();
-//     localStorage.setItem("MyLibrary", JSON.stringify(myLibrary));
-// }
-// form.addEventListener("click", addFromForm);
-// form.addEventListener("click", displayBook(myLibrary));
-
-// const addBookButton = document.querySelector(".add-book-btn");
-// addBookButton.addEventListener("click", addBookToLibrary);
 
 // add an event listener to the New Book button that pops out the modal by removing display none
 const newBookBtn = document.getElementById("new-book-btn");
