@@ -16,14 +16,16 @@ let myLibrary = [
 // DOM objects
 const newBookButton = document.querySelector("#new-book-btn");
 const bookCards = document.querySelector(".book-cards");
+const form = document.querySelector("form");
+
 
 // constructor
 class Book {
   constructor(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+    this.title = form.title.value;
+    this.author = form.author.value;
+    this.pages = form.pages.value;
+    this.read = form.read.value;
   }
 }
 
@@ -50,28 +52,39 @@ function displayBook(myLibrary) {
 }
 displayBook(myLibrary);
 
-function addBookToLibrary(title, author, pages, read) {
+function addBookToLibrary() {
+  event.preventDefault();
+  const title = document.querySelector("#book-title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  const read = document.querySelector("#read").value;
   newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
+  storeLocally();
+  displayBook(myLibrary);
+  document.querySelector("form").reset();
 }
 
-const form = document.getElementById("form");
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".add-book-btn").addEventListener("click", addBookToLibrary);
+});
 
-function addFromForm(event) {
-    event.preventDefault();
-    const title = document.querySelector("#book-title").value;
-    const author = document.querySelector("#author").value;
-    const pages = document.querySelector("#pages").value;
-    const read = document.querySelector("#read").value;
-    addBookToLibrary(title, author, pages, read);
-    document.querySelector("form").reset();
-    localStorage.setItem("MyLibrary", JSON.stringify(myLibrary));
+function storeLocally() {
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
-form.addEventListener("click", addFromForm);
+
+
+// function addFromForm(event) {
+//     event.preventDefault();
+//     addBookToLibrary(title, author, pages, read);
+//     document.querySelector("form").reset();
+//     localStorage.setItem("MyLibrary", JSON.stringify(myLibrary));
+// }
+// form.addEventListener("click", addFromForm);
 // form.addEventListener("click", displayBook(myLibrary));
 
-const addBookButton = document.querySelector(".add-book-btn");
-addBookButton.addEventListener("click", addBookToLibrary);
+// const addBookButton = document.querySelector(".add-book-btn");
+// addBookButton.addEventListener("click", addBookToLibrary);
 
 // add an event listener to the New Book button that pops out the modal by removing display none
 const newBookBtn = document.getElementById("new-book-btn");
@@ -80,9 +93,6 @@ function displayToggle() {
   modal.classList.remove("hidden");
 }
 newBookBtn.addEventListener("click", displayToggle);
-
-// add an event listener to the Add Book button to submit the form's inputs and call the addBookToLibrary function and displayBook function
-// also closing the modal by adding display none back to it
 
 // event listeners to hide the modal when clicking the cancel button, modal background, or pressing the escape key
 const closeBtn = document.querySelector(".close-btn");
@@ -100,8 +110,4 @@ document.addEventListener("keydown", function (event) {
     const modal = document.getElementById("modal");
     modal.classList.add("hidden");
   }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".add-book-btn").addEventListener("click", addFromForm);
 });
