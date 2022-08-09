@@ -12,10 +12,13 @@
   --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 html,
 body {
   margin: 0px;
   height: 100%;
+  font-family: 'Lobster', 'Times New Roman', sans-serif;
 }
 
 .wrapper {
