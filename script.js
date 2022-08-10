@@ -1,26 +1,27 @@
 let myLibrary = [
-  {
-    title: "The Hobbit",
-    author: "J.R.R. Tolkien",
-    pages: 295,
-    read: "no",
-  },
-  {
-    title: "Harry Potter",
-    author: "JK Rowling",
-    pages: 123,
-    read: "yes",
-  },
+  // {
+  //   title: "The Hobbit",
+  //   author: "J.R.R. Tolkien",
+  //   pages: 295,
+  //   read: "no",
+  // },
+  // {
+  //   title: "Harry Potter",
+  //   author: "JK Rowling",
+  //   pages: 123,
+  //   read: "yes",
+  // },
 ];
+let newBook;
 
 // DOM objects
-const newBookButton = document.querySelector("#new-book-btn");
-const bookCards = document.querySelector(".book-cards");
-const form = document.querySelector("form");
+// const newBookButton = document.querySelector("#new-book-btn");
+// const bookCards = document.querySelector(".book-cards");
+// const form = document.querySelector("form");
 
 // constructor
 class Book {
-  constructor() {
+  constructor(title, author, pages, read) {
     this.title = form.title.value;
     this.author = form.author.value;
     this.pages = form.pages.value;
@@ -28,59 +29,27 @@ class Book {
   }
 }
 
-// a function that creates a div with the title as a header and appends it to book-cards container
-function displayBook(myLibrary) {
-  bookCards.innerHTML = "";
+
+function addBookToLibrary() {
+  event.preventDefault();
+  // modal.style.display = "none";
+
+  newBook = new Book(title, author, pages, read);
+  myLibrary.push(newBook);
+  storeLocally();
+  displayBook(myLibrary);
+  document.querySelector("form").reset();
+  closeModal();
+}
+
+function render() {
+  const library = document.querySelector(".book-cards");
+  const books = document.querySelectorAll(".book-card");
+  books.forEach((book) => library.removeChild(book));
   for (let i = 0; i < myLibrary.length; i++) {
-    const div = document.createElement("div");
-    const h2 = document.createElement("h2");
-    const p = document.createElement("p");
-    const removeContainer = document.createElement("div");
-    const remove = document.createElement("div");
-    div.classList.add("book-card");
-    removeContainer.classList.add("cursor");
-    remove.classList.add("material-icons");
-    remove.innerText = "delete";
-    h2.textContent = myLibrary[i]["title"];
-    p.textContent =
-      "By " +
-      myLibrary[i]["author"] +
-      ", " +
-      myLibrary[i]["pages"] +
-      " pages, " +
-      myLibrary[i]["read"];
-    div.appendChild(h2);
-    div.appendChild(p);
-    removeContainer.appendChild(remove);
-    div.appendChild(removeContainer);
-    bookCards.appendChild(div);
-    addIndex();
+    displayBook(myLibrary[i]);
   }
 }
-displayBook(myLibrary);
-
-// grabs the input values from the form and creates a new book object that is pushed to myLibrary array
-// the array then stores the updated array to local storage and displayBook iterates through the updated myLibrary
-// finish by clearing the form's data for future entries and closing the modal/popup
-function addBookToLibrary() {
-    event.preventDefault();
-    const title = document.querySelector("#title").value;
-    const author = document.querySelector("#author").value;
-    const pages = document.querySelector("#pages").value;
-    const read = document.querySelector("#read").value;
-    newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
-    storeLocally();
-    displayBook(myLibrary);
-    document.querySelector("form").reset();
-    closeModal();
-}
-const removeBook = document.querySelectorAll(".cursor");
-removeBook.forEach(item => item.addEventListener("click", () => {
-    myLibrary.splice(myLibrary.indexOf(item), 1);
-    storeLocally();
-    displayBook(myLibrary);
-}));
 
 document.addEventListener("DOMContentLoaded", () => {
   document
@@ -118,8 +87,56 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-function addIndex () {
-  myLibrary.forEach((item, i) => {
-    item.id = i + 1;
+// a function that creates a div with the title as a header and appends it to book-cards container
+function displayBook(item) {
+  const bookshelf = document.querySelector(".book-cards");
+  const bookDiv = document.createElement("div");
+  const titleHeader = document.createElement("h2");
+  const contentDiv = document.createElement("div");
+  const removeBtn = document.createElement("button");
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const pages = document.getElementById("pages").value;
+  const read = document.getElementById("read").value;
+
+
+  bookDiv.classList.add("book-card");
+  bookDiv.setAttribute("id", myLibrary.indexOf(item));
+  titleHeader.textContent = title;
+  bookDiv.appendChild(titleHeader);
+  contentDiv.textContent =
+    "By " + author + ", " + pages + ", " + read;
+  bookDiv.appendChild(contentDiv);
+
+  removeBtn.classList.add("material-icons");
+  removeBtn.textContent = "delete";
+  removeBtn.setAttribute("id", "removeBtn");
+  bookDiv.appendChild(removeBtn);
+
+  bookshelf.appendChild(bookDiv);
+
+  removeBtn.addEventListener("click", () => {
+    myLibrary.splice(myLibrary.indexOf(item), 1);
+    storeLocally();
+    render();
   });
 }
+
+function restore() {
+  if (!localStorage.myLibrary) {
+    render();
+  } else {
+    let objects = localStorage.getItem("myLibrary");
+    objects = JSON.parse(objects);
+    myLibrary = objects;
+    render();
+  }
+}
+restore();
+// displayBook(myLibrary);
+
+// function addIndex() {
+//   myLibrary.forEach((item, i) => {
+//     item.id = i;
+//   });
+// }
