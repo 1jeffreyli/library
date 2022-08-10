@@ -20,7 +20,7 @@ const form = document.querySelector("form");
 
 // constructor
 class Book {
-  constructor(title, author, pages, read) {
+  constructor() {
     this.title = form.title.value;
     this.author = form.author.value;
     this.pages = form.pages.value;
@@ -54,6 +54,7 @@ function displayBook(myLibrary) {
     removeContainer.appendChild(remove);
     div.appendChild(removeContainer);
     bookCards.appendChild(div);
+    addIndex();
   }
 }
 displayBook(myLibrary);
@@ -62,18 +63,24 @@ displayBook(myLibrary);
 // the array then stores the updated array to local storage and displayBook iterates through the updated myLibrary
 // finish by clearing the form's data for future entries and closing the modal/popup
 function addBookToLibrary() {
-  event.preventDefault();
-  const title = document.querySelector("#book-title").value;
-  const author = document.querySelector("#author").value;
-  const pages = document.querySelector("#pages").value;
-  const read = document.querySelector("#read").value;
-  newBook = new Book(title, author, pages, read);
-  myLibrary.push(newBook);
-  storeLocally();
-  displayBook(myLibrary);
-  document.querySelector("form").reset();
-  closeModal();
+    event.preventDefault();
+    const title = document.querySelector("#book-title").value;
+    const author = document.querySelector("#author").value;
+    const pages = document.querySelector("#pages").value;
+    const read = document.querySelector("#read").value;
+    newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+    storeLocally();
+    displayBook(myLibrary);
+    document.querySelector("form").reset();
+    closeModal();
 }
+const removeBook = document.querySelectorAll(".cursor");
+removeBook.forEach(item => item.addEventListener("click", () => {
+    myLibrary.splice(myLibrary.indexOf(item), 1);
+    storeLocally();
+    displayBook(myLibrary);
+}));
 
 document.addEventListener("DOMContentLoaded", () => {
   document
@@ -110,3 +117,10 @@ document.addEventListener("keydown", function (event) {
     modal.classList.add("hidden");
   }
 });
+
+function addIndex () {
+  myLibrary.forEach((item, i) => {
+    item.id = i + 1;
+  });
+  // console.log(myLibrary);
+}
