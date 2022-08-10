@@ -57,9 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", addBookToLibrary);
 });
 
-function storeLocally() {
-  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-}
+
 
 // add an event listener to the New Book button that pops out the modal by removing display none
 const newBookBtn = document.getElementById("new-book-btn");
@@ -94,18 +92,18 @@ function displayBook(item) {
   const titleHeader = document.createElement("h2");
   const contentDiv = document.createElement("div");
   const removeBtn = document.createElement("button");
-  const title = document.getElementById("title").value;
-  const author = document.getElementById("author").value;
-  const pages = document.getElementById("pages").value;
-  const read = document.getElementById("read").value;
+  // const title = document.getElementById("title").value;
+  // const author = document.getElementById("author").value;
+  // const pages = document.getElementById("pages").value;
+  // const read = document.getElementById("read").value;
 
 
   bookDiv.classList.add("book-card");
   bookDiv.setAttribute("id", myLibrary.indexOf(item));
-  titleHeader.textContent = title;
+  titleHeader.textContent = item.title;
   bookDiv.appendChild(titleHeader);
   contentDiv.textContent =
-    "By " + author + ", " + pages + ", " + read;
+    "By " + item.author + ", " + item.pages + ", " + item.read;
   bookDiv.appendChild(contentDiv);
 
   removeBtn.classList.add("material-icons");
@@ -120,6 +118,10 @@ function displayBook(item) {
     storeLocally();
     render();
   });
+}
+
+function storeLocally() {
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
 function restore() {
