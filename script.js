@@ -64,7 +64,7 @@ displayBook(myLibrary);
 // finish by clearing the form's data for future entries and closing the modal/popup
 function addBookToLibrary() {
     event.preventDefault();
-    const title = document.querySelector("#book-title").value;
+    const title = document.querySelector("#title").value;
     const author = document.querySelector("#author").value;
     const pages = document.querySelector("#pages").value;
     const read = document.querySelector("#read").value;
@@ -122,5 +122,4 @@ function addIndex () {
   myLibrary.forEach((item, i) => {
     item.id = i + 1;
   });
-  // console.log(myLibrary);
 }
