@@ -92,18 +92,18 @@ function displayBook(item) {
   const titleHeader = document.createElement("h2");
   const contentDiv = document.createElement("div");
   const removeBtn = document.createElement("button");
-  // const title = document.getElementById("title").value;
-  // const author = document.getElementById("author").value;
-  // const pages = document.getElementById("pages").value;
-  // const read = document.getElementById("read").value;
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const pages = document.getElementById("pages").value;
+  const read = document.getElementById("read").value;
 
 
   bookDiv.classList.add("book-card");
   bookDiv.setAttribute("id", myLibrary.indexOf(item));
-  titleHeader.textContent = item.title;
+  titleHeader.textContent = title;
   bookDiv.appendChild(titleHeader);
   contentDiv.textContent =
-    "By " + item.author + ", " + item.pages + ", " + item.read;
+    "By " + author + ", " + pages + ", " + read;
   bookDiv.appendChild(contentDiv);
 
   removeBtn.classList.add("material-icons");
