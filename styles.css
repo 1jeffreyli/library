@@ -74,6 +74,20 @@ body {
 
 .book-card > * {
   padding: 5px;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.book-card > button {
+  border-color: var(--900);
+  box-shadow: var(--box-shadow);
+  background-color: var(--100);
+  color: var(--600);
+}
+
+.book-card > button:hover {
+  color: red;
 }
 
 .book-cards h2 {
@@ -85,18 +99,8 @@ body {
   margin-top: 15px;
 }
 
-.button-container button {
-  font-size: 14px;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  border-color: var(--900);
-  box-shadow: var(--box-shadow);
-}
-
 .button-container button:hover,
 .add-book-btn:hover {
-  background-color: var(--800);
-  color: var(--200);
 }
 
 .form-container {
@@ -168,6 +172,6 @@ input {
 .close-btn:hover,
 .button-container button,
 .add-book-btn:hover,
-.cursor:hover {
+.material-icons:hover {
   cursor: pointer;
 }
