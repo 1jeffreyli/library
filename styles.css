@@ -99,14 +99,10 @@ body {
   margin-top: 15px;
 }
 
-.button-container button:hover,
-.add-book-btn:hover {
-}
-
 .form-container {
   position: absolute;
   background-color: var(--100);
-  padding: 15px;
+  padding: 30px 30px 15px 30px;
   border-radius: 5px;
 }
 
@@ -118,9 +114,10 @@ body {
 }
 
 .labels-inputs {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  /* grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px; */
 }
 
 .labels-inputs > div {
@@ -133,6 +130,14 @@ input {
   width: 100%;
   margin: 0;
   font-size: 12px;
+}
+
+.read-container {
+  text-align: center;
+}
+
+.read-container input {
+  height: 1rem;
 }
 
 .add-book-btn {
