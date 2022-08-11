@@ -84,10 +84,17 @@ body {
   box-shadow: var(--box-shadow);
   background-color: var(--100);
   color: var(--600);
+  margin-top: 15px;
 }
 
-.book-card > button:hover {
+.book-card > button:first-of-type {
+  color: var(--100);
+  cursor: pointer;
+}
+
+#removeBtn:hover {
   color: red;
+  cursor: pointer;
 }
 
 .book-cards h2 {
@@ -116,8 +123,6 @@ body {
 .labels-inputs {
   display: flex;
   flex-direction: column;
-  /* grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px; */
 }
 
 .labels-inputs > div {

@@ -20,7 +20,7 @@ class Book {
     this.title = form.title.value;
     this.author = form.author.value;
     this.pages = form.pages.value;
-    this.read = form.read.value;
+    this.read = form.read.checked;
   }
 }
 
@@ -81,6 +81,7 @@ function displayBook(item) {
   const bookDiv = document.createElement("div");
   const titleHeader = document.createElement("h2");
   const contentDiv = document.createElement("div");
+  const readBtn = document.createElement("button");
   const removeBtn = document.createElement("button");
 
   bookDiv.classList.add("book-card");
@@ -91,6 +92,16 @@ function displayBook(item) {
     "By " + item.author + ", " + item.pages + ", " + item.read;
   bookDiv.appendChild(contentDiv);
 
+  readBtn.classList.add("read-button");
+  bookDiv.appendChild(readBtn);
+  if (item.read === false) {
+    readBtn.textContent = "Not Read Yet";
+    readBtn.style.backgroundColor = "red";
+  } else {
+    readBtn.textContent = "Read";
+    readBtn.style.backgroundColor = "green";
+  }
+  
   removeBtn.classList.add("material-icons");
   removeBtn.textContent = "delete";
   removeBtn.setAttribute("id", "removeBtn");
