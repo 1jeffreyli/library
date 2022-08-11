@@ -14,14 +14,9 @@ let myLibrary = [
 ];
 let newBook;
 
-// DOM objects
-// const newBookButton = document.querySelector("#new-book-btn");
-// const bookCards = document.querySelector(".book-cards");
-// const form = document.querySelector("form");
-
 // constructor
 class Book {
-  constructor(title, author, pages, read) {
+  constructor() {
     this.title = form.title.value;
     this.author = form.author.value;
     this.pages = form.pages.value;
@@ -29,15 +24,12 @@ class Book {
   }
 }
 
-
 function addBookToLibrary() {
   event.preventDefault();
-  // modal.style.display = "none";
-
   newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
   storeLocally();
-  displayBook(myLibrary);
+  render();
   document.querySelector("form").reset();
   closeModal();
 }
@@ -46,7 +38,7 @@ function render() {
   const library = document.querySelector(".book-cards");
   const books = document.querySelectorAll(".book-card");
   books.forEach((book) => library.removeChild(book));
-  for (let i = 0; i < myLibrary.length; i++) {
+  for (let i = 1; i < myLibrary.length; i++) {
     displayBook(myLibrary[i]);
   }
 }
@@ -56,8 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector(".add-book-btn")
     .addEventListener("click", addBookToLibrary);
 });
-
-
 
 // add an event listener to the New Book button that pops out the modal by removing display none
 const newBookBtn = document.getElementById("new-book-btn");
@@ -92,18 +82,13 @@ function displayBook(item) {
   const titleHeader = document.createElement("h2");
   const contentDiv = document.createElement("div");
   const removeBtn = document.createElement("button");
-  const title = document.getElementById("title").value;
-  const author = document.getElementById("author").value;
-  const pages = document.getElementById("pages").value;
-  const read = document.getElementById("read").value;
-
 
   bookDiv.classList.add("book-card");
-  bookDiv.setAttribute("id", myLibrary.indexOf(item));
-  titleHeader.textContent = title;
+  addIndex();
+  titleHeader.textContent = item.title;
   bookDiv.appendChild(titleHeader);
   contentDiv.textContent =
-    "By " + author + ", " + pages + ", " + read;
+    "By " + item.author + ", " + item.pages + ", " + item.read;
   bookDiv.appendChild(contentDiv);
 
   removeBtn.classList.add("material-icons");
@@ -135,10 +120,9 @@ function restore() {
   }
 }
 restore();
-// displayBook(myLibrary);
 
-// function addIndex() {
-//   myLibrary.forEach((item, i) => {
-//     item.id = i;
-//   });
-// }
+function addIndex() {
+  myLibrary.forEach((item, i) => {
+    item.id = i;
+  });
+}
