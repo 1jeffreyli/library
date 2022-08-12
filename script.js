@@ -89,18 +89,24 @@ function displayBook(item) {
   titleHeader.textContent = item.title;
   bookDiv.appendChild(titleHeader);
   contentDiv.textContent =
-    "By " + item.author + ", " + item.pages + ", " + item.read;
+    "By " + item.author + ", " + item.pages + " pages";
   bookDiv.appendChild(contentDiv);
 
   readBtn.classList.add("read-button");
   bookDiv.appendChild(readBtn);
   if (item.read === false) {
-    readBtn.textContent = "Not Read Yet";
+    readBtn.textContent = "Not Read";
     readBtn.style.backgroundColor = "red";
   } else {
     readBtn.textContent = "Read";
     readBtn.style.backgroundColor = "green";
   }
+
+  readBtn.addEventListener("click", () => {
+    item.read = !item.read;
+    storeLocally();
+    render();
+  })
   
   removeBtn.classList.add("material-icons");
   removeBtn.textContent = "delete";

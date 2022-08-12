@@ -60,6 +60,7 @@ body {
 }
 
 .book-card {
+  width: 250px;
   margin: 10px;
   padding: 25px;
   border-radius: 5px;
@@ -95,6 +96,10 @@ body {
 #removeBtn:hover {
   color: red;
   cursor: pointer;
+}
+
+.read-button {
+  width: 100px;
 }
 
 .book-cards h2 {
