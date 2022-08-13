@@ -6,4 +6,5 @@ This web app was made using HTML, CSS, and JavaScript. Specifically, the layout 
 ### Challenges
 - Tried to utilize an HTML table for the books but due to time constraints and JS difficulties, decided to just add the books as their own divs.
 - Learned how to properly grab the input values from the form and manipulate them in JS using DOM methods. Specifically, I missed setting the action attribute to link to the file containing the JavaScript file.
+- Importance of storing form input values, in this case to localStorage as a JSON string file.
 - Future features could include dragging and dropping to reorder the books, add popping animations to the book on hover, and adding books inside of a table.
